@@ -4,12 +4,4 @@
   hosts: eko-mongo
 
   tasks:
-    - name: Clone project from Git
-      git:
-        repo: git@github.com:ajoe1234/demo-nodejs-mongodb-rest.git
-        dest: /home/ab01/eko
-
-    - name: Build Docker Image
-      docker_image:
-        name=ajoe1234/eko_nodeapp
-        path=/home/ab01/eko
+    - name: Setup Mongo using Docker
