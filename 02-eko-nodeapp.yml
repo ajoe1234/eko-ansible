@@ -1,7 +1,7 @@
 ---
 - name: eko-nodeapp Environment
   gather_facts: No
-  hosts: eko_nodeapp-nonadmin
+  hosts: eko_nodeapp
 
   tasks:
     - name: Clone project from Git
