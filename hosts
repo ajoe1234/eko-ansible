@@ -49,7 +49,7 @@
 ##root@eko-nodeapp
 ##root@eko-mongo
 
-[eko_nodeapp]
+[eko-nodeapp]
 ab01@eko-nodeapp
 
 [eko-mongo]
