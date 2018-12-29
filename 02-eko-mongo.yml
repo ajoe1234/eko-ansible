@@ -4,4 +4,31 @@
   hosts: eko-mongo
 
   tasks:
-    - name: Setup Mongo using Docker
+    - name: Create Dockerfile for setup mongo
+      copy:
+        dest: "/home/joe/docker/Dockerfile"
+        content: |
+          FROM centos:centos7
+
+          RUN yum -y update; yum clean all
+          RUN yum -y install epel-release; yum clean all
+          RUN yum -y install mongodb-server; yum clean all
+          RUN mkdir -p /data/db
+
+          EXPOSE 27017
+          ENTRYPOINT ["/usr/bin/mongod"]
+
+    - name: Build Mongo Docker Image
+      docker_image:
+        name=ajoe1234/mongo:centos7
+        path=/home/joe/docker/ 
+
+    - name: Run Mongo Container 
+      docker_container:
+        image: ajoe1234/mongo:centos7
+        name: eko-mongo
+        ports:
+          - "28001:27017"   
+
+
+  

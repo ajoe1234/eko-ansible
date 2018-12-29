@@ -9,7 +9,14 @@
         repo: git@github.com:ajoe1234/demo-nodejs-mongodb-rest.git
         dest: /home/ab01/eko
 
-    - name: Build Docker Image
+    - name: Build App Image
       docker_image:
         name=ajoe1234/eko_nodeapp
         path=/home/ab01/eko
+
+    - name: Run App Container
+      docker_container:
+        image: ajoe1234/eko_nodeapp:latest
+        name: eko-nodeapp
+        ports:
+          - "11111:3000"
