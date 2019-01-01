@@ -6,7 +6,7 @@
   tasks:
     - name: Create Dockerfile for setup mongo
       copy:
-        dest: "/home/joe/docker/Dockerfile"
+        dest: "/home/ab01/docker/Dockerfile"
         content: |
           FROM centos:centos7
 
@@ -21,7 +21,7 @@
     - name: Build Mongo Docker Image
       docker_image:
         name=ajoe1234/mongo:centos7
-        path=/home/joe/docker/ 
+        path=/home/ab01/docker/ 
 
     - name: Run Mongo Container 
       docker_container:
